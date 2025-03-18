@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Help Group Portal</title>
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1>GOVERNMENT OF MAHARASTRA DEPARTMENT OF SELF HELP GROUP & SELF EMPLOYMENT</h1>
+            <div class="font-language-options">
+                <button onclick="adjustFontSize('increase')">A+</button>
+                <button onclick="adjustFontSize('decrease')">A-</button>
+                <select id="language-selector" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="mr">Marathi</option>
+                    <option value="hi">Hindi</option>
+                </select>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="details.html">Details</a></li>
+                <li><a href="schemes.html">Govt Schemes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Content of each page -->
+        <section id="content">
+            <h2>Welcome</h2>
+            <p>This is the home page.  Login or Register.</p>
+
+            <div id="login-form">
+                <h3>Login</h3>
+                <input type="text" id="user-id" placeholder="User ID">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="login()">Login</button>
+            </div>
+
+            <div id="registration-link">
+                <a href="registration.html">Register Here</a>
+            </div>
+
+        </section>
+    </main>
+ 
+    <footer>
+        <p>&copy; 2025 Self Help Group Portal</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
+

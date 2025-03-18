@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Help Group Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!--  (Same header content as index.html) -->
+    </header>
+
+    <main>
+        <section id="registration-form">
+            <h2>Registration Form</h2>
+            <form id="registrationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea><br><br>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required><br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo"><br><br>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" value="India" readonly><br><br>
+
+                <label for="state">State:</label>
+                <select id="state" name="state" onchange="populateCities()" required>
+                    <option value="">Select State</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                </select><br><br>
+
+                <label for="city">City:</label>
+                <select id="city" name="city" required>
+                    <option value="">Select City</option>
+                    <!-- Cities will be populated by JavaScript -->
+                </select><br><br>
+
+                <label for="taluka">Taluka/District:</label>
+                <input type="text" id="taluka" name="taluka" required><br><br>
+
+                <!-- Mumbai Wards (Conditional) -->
+                <div id="ward-field" style="display:none;">
+                    <label for="ward">Ward:</label>
+                    <select id="ward" name="ward">
+                        <option value="">Select Ward</option>
+                        <!-- Add Mumbai ward options -->
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="c">C</option>
+                    </select><br><br>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <!-- (Same footer content as index.html) -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+       function populateCities() {
+            const stateDropdown = document.getElementById("state");
+            const cityDropdown = document.getElementById("city");
+            const wardField = document.getElementById("ward-field");
+            const selectedState = stateDropdown.value;
+
+            cityDropdown.innerHTML = '<option value="">Select City</option>'; // Clear previous options
+
+            if (selectedState === "Maharashtra") {
+                const cities = ["Mumbai", "Pune", "Nagpur", "Nashik"]; // Add more cities
+                cities.forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city;
+                    option.textContent = city;
+                    cityDropdown.appendChild(option);
+                });
+
+                if (cityDropdown.value === "Mumbai") {
+                    wardField.style.display = "block";
+                } else {
+                    wardField.style.display = "none";
+                }
+            }  else {
+                wardField.style.display = "none"; // Hide for other states
+            }
+        }
+
+        document.getElementById("city").addEventListener("change", function() {
+            const cityDropdown = document.getElementById("city");
+            const wardField = document.getElementById("ward-field");
+
+            if (cityDropdown.value === "Mumbai") {
+                wardField.style.display = "block";
+            } else {
+                wardField.style.display = "none";
+            }
+        });
+
+
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // You would typically send the form data to a server-side script here
+            // using AJAX (fetch or XMLHttpRequest).  For example:
+
+            const formData = new FormData(this); // 'this' refers to the form
+            //  fetch('/register', {  // Replace '/register' with your server endpoint
+            //      method: 'POST',
+            //      body: formData
+            //  })
+            //  .then(response => response.json())
+            //  .then(data => {
+            //      console.log(data);  // Handle the server's response
+            //      alert('Registration successful!');
+            //  })
+            //  .catch(error => {
+            //      console.error('Error:', error);
+            //      alert('Registration failed.');
+            //  });
+
+            // For now, let's just log the form data to the console:
+            for (const pair of formData.entries()) {
+                console.log(pair[0] + ': ' + pair[1]);
+            }
+        });
+    </script>
+</body>
+</html>

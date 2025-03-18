@@ -1,0 +1,130 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-size: 16px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.font-language-options {
+    display: flex;
+    gap: 10px;
+}
+
+nav {
+    background-color: #444;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#login-form {
+    margin-top: 20px;
+}
+
+#login-form input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#registration-link {
+    margin-top: 10px;
+}
+
+#registration-form {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#registration-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#registration-form input[type="text"],
+#registration-form input[type="number"],
+#registration-form input[type="tel"],
+#registration-form input[type="file"],
+#registration-form select,
+#registration-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Important: Makes padding and border included in the element's total width and height */
+}
+
+#registration-form input[type="text"]:focus,
+#registration-form input[type="number"]:focus,
+#registration-form input[type="tel"]:focus,
+#registration-form input[type="file"]:focus,
+#registration-form select:focus,
+#registration-form textarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+#registration-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#registration-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
